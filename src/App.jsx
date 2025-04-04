@@ -28,9 +28,9 @@ export default function App() {
     const newRecords = [...records]
     newRecords[i].result = value
 
-    if (newRecords[i].prediction && newRecords[i].result) {
-      const pred = newRecords[i].prediction
-      const res = newRecords[i].result
+    const pred = newRecords[i].prediction
+    const res = newRecords[i].result
+    if (pred && res) {
       if (res === 'T' && (pred === 'B' || pred === 'P')) {
         newRecords[i].hit = ''
       } else if (pred === res) {
@@ -62,7 +62,7 @@ export default function App() {
 
   return (
     <div>
-      <h1>FlowShift 예측기</h1>
+      <h1>FlowShift 예측기 (React 프로젝트)</h1>
       <div style={{ marginBottom: '10px' }}>
         {['B', 'P', 'T'].map(v => (
           <button key={v} onClick={() => handleInput(v)}>{v}</button>
